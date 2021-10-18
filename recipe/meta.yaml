@@ -15,14 +15,14 @@ build:
   noarch: python
 
 requirements:
-  host:
-    - pip
-    - python
   build:
     - neovim
     - twine
+  host:
+    - pip
+    - python >=3.6
   run:
-    - python>=3.6
+    - python >=3.6
 
 test:
   imports:
