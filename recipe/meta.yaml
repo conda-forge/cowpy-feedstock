@@ -18,8 +18,11 @@ requirements:
   host:
     - pip
     - python
+  build:
+    - neovim
+    - twine
   run:
-    - python
+    - python>=3.6
 
 test:
   imports:
