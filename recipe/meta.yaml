@@ -16,9 +16,7 @@ build:
 
 requirements:
   host:
-    - neovim
-    - poetry
-    - twine
+    - poetry-core >=1
     - pip
     - python >=3.6
   run:
