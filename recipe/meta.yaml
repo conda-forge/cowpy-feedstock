@@ -1,25 +1,26 @@
 {% set name = "cowpy" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://github.com/jeffbuttars/cowpy/archive/{{ version }}.tar.gz"
-  sha256: "9bd1c3e1bf87be496484ea2d843f45a3e058bc3c7eeb23d303efb1bf2bd14e85"
+  url: https://github.com/jeffbuttars/cowpy/archive/{{ version }}.tar.gz
+  sha256: 7036c75e6ac547a51ea994b6636c93a9d57ff9a1bd37057e720ddc28b9663691
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
   noarch: python
 
 requirements:
   host:
+    - poetry-core >=1
     - pip
-    - python
+    - python >=3.6
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
@@ -30,7 +31,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE.txt
-  summary: "A cowsay clone for python in one file."
+  summary: A cowsay clone for python in one file.
 
 extra:
   recipe-maintainers:
