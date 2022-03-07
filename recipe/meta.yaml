@@ -1,5 +1,5 @@
 {% set name = "cowpy" %}
-{% set version = "1.1.4" %}
+{% set version = "1.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jeffbuttars/cowpy/archive/{{ version }}.tar.gz
-  sha256: f2941ddbb118309ab393e828f67b67da3dbcc9f2c4414c0b131bf9d4cb140b8f
+  sha256: 9f9c543538520bb0013bb0a7ba2b5567c9bb4acb19409c2b07170291a2e689ed
 
 build:
   number: 0
