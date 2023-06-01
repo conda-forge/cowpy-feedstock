@@ -27,8 +27,6 @@ requirements:
 test:
   imports:
     - cowpy
-  commands:
-    - cowpy "Hello World"
 
 about:
   home: https://github.com/jeffbuttars/cowpy
@@ -40,3 +38,4 @@ about:
 extra:
   recipe-maintainers:
     - carterbox
+    - wolfv
