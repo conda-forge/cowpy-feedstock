@@ -11,7 +11,10 @@ source:
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+  script:
+  # scripts folder from upstream interferes with the entry point creation
+    - rm -rf scripts
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
   noarch: python
   entry_points:
     - cowpy = cowpy.cow:main
@@ -27,6 +30,9 @@ requirements:
 test:
   imports:
     - cowpy
+  commands:
+    - echo "my message" | cowpy
+    - cowpy --help
 
 about:
   home: https://github.com/jeffbuttars/cowpy
