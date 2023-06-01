@@ -10,9 +10,14 @@ source:
   sha256: 9f9c543538520bb0013bb0a7ba2b5567c9bb4acb19409c2b07170291a2e689ed
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+  number: 1
+  script:
+  # scripts folder from upstream interferes with the entry point creation
+    - rm -rf scripts
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
   noarch: python
+  entry_points:
+    - cowpy = cowpy.cow:main
 
 requirements:
   host:
@@ -25,6 +30,9 @@ requirements:
 test:
   imports:
     - cowpy
+  commands:
+    - echo "my message" | cowpy
+    - cowpy --help
 
 about:
   home: https://github.com/jeffbuttars/cowpy
@@ -36,3 +44,4 @@ about:
 extra:
   recipe-maintainers:
     - carterbox
+    - wolfv
