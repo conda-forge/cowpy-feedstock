@@ -10,7 +10,7 @@ source:
   sha256: 9f9c543538520bb0013bb0a7ba2b5567c9bb4acb19409c2b07170291a2e689ed
 
 build:
-  number: 1
+  number: 2
   script:
   # scripts folder from upstream interferes with the entry point creation
     - rm -rf scripts
@@ -23,11 +23,13 @@ requirements:
   host:
     - poetry-core >=1
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - cowpy
   commands:
